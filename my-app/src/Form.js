@@ -2,6 +2,17 @@ import React, { useState } from 'react';
 import * as yup from "yup";
 import axios from "axios";
 
+const formSchema = yup.object().shape({
+    name: yup.string().required("Must provide your name"),
+    email: yup
+        .string()
+        .email("Must provide a valid email address: name@email.com")
+        .required("Must include email address"),
+        secretPassword: yup.string().required("Must provide the secret password given in your invite to attend"),
+        totalGuests: yup.string.required("Must provide total guests you plan to bring. Limit 4 per party."),
+        favoriteCharacter: yup.string.required("Please tell us your favorite character. If is not Louise, you may not make it home (note: this was not hacked by Louise).")
+})
+
 function Form() {
     const [formState, setFormState] = useState({
         name: "",
