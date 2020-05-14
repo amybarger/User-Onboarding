@@ -43,9 +43,8 @@ function App() {
         <h1>💃🍔The 5th Annual Bob's Burgers Ball!🍔🤵‍</h1>
         <img src="https://66.media.tumblr.com/ea714643037906db0da2324374c6017d/tumblr_ohdffpMZGT1udklowo1_540.gifv"></img>
         <p>When: Saturday, December 19, 2020</p>
+        <p>Time: 6pm - midnight</p>
         <p>Where: Bob's Burgers, 4558 Ocean Ave., Unknown, Long Island </p>
-        <p>Time: 6pm</p>
-
         <h2>RSVP Below!</h2>
       </div>
       <Form addMember={addMember}/>
