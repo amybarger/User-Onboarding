@@ -24,13 +24,19 @@ const formSchema = yup.object().shape({
         .oneOf([true], "To attend, you must check this box to verify that if any of the Belcher children ruin this ball in anyway that you won't sue us. Thank you.")
 });
 
-const Form = () =>{
+const Form = (props) =>{
     const formSubmit = (e) => {
         e.preventDefault();
+        setFormState({name: "",
+        email: "",
+        secretPassword: "",
+        totalGuests: "",
+        favoriteCharacter: "",
+        notice: false})
         console.log("form submitted!");
      axios 
         .post("https://reqres.in/api/users", formState)
-        .then(response => console.log(response))
+        .then(response => {console.log(response); props.addMember(response.data)})
         .catch(err => console.log(err));
 };
 
