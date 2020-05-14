@@ -116,8 +116,27 @@ function Form() {
                     onChange={inputChange}  
                 />
             </label>
-            
-            
+            <label htmlFor="favoriteCharacter">
+                Favorite Character
+                <input 
+                    type="name"
+                    name="favoriteCharacter"
+                    id="favoriteCharacter"
+                    value={formState.totalGuests}
+                    onChange={inputChange}
+                />
+            </label>
+            <label htmlFor="notice">
+                <input 
+                    type="checkbox"
+                    id="notice"
+                    name="notice"
+                    checked={formState.terms}
+                    onChange={inputChange}
+                />
+                Notice
+            </label>
+            <button>Submit</button>    
         </form>
     )
 }
