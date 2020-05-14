@@ -2,14 +2,6 @@ import React, { useState, useEffect } from 'react';
 import * as yup from "yup";
 import axios from "axios";
 
-// const [post, setPost] = useState([]);
-
-// useEffect(() => {
-//     formSchema.isValid(formState).then(valid => {
-//         setButtonDisabled(!valid);
-//     });
-// }, [formState]);
-
 const formSchema = yup.object().shape({
     name: yup
         .string()
@@ -33,12 +25,10 @@ const formSchema = yup.object().shape({
 });
 
 const Form = () =>{
-
-
-const formSubmit = (e) => {
-    e.preventDefault();
-    console.log("form submitted!");
-    axios 
+    const formSubmit = (e) => {
+        e.preventDefault();
+        console.log("form submitted!");
+     axios 
         .post("https://reqres.in/api/users", formState)
         .then(response => console.log(response))
         .catch(err => console.log(err));
@@ -51,7 +41,6 @@ const [formState, setFormState] = useState({
     totalGuests: "",
     favoriteCharacter: "",
     notice: false
-
 });
 
 const [errorState, setErrorState] = useState({
@@ -92,6 +81,7 @@ yup
         };
 
     return (
+    <div>
         <form onSubmit={formSubmit}>
             <label htmlFor="name">
                 Name
@@ -184,7 +174,8 @@ yup
                 Notice
             </label>
             <button>Submit</button>    
-        </form>
+        </form>  
+    </div>
     )
 };
 

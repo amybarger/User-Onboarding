@@ -1,8 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Form from './Form';
+import InviteList from './InviteList';
 
 function App() {
+
+  const [members, setMembers]= useState([
+    {
+      name: "Speedo Guy",
+      email: "widethewave@gmail.com",
+      secretPassword: "BelchersRule!",
+      totalGuests: "0",
+      favoriteCharacter: "Bob Belcher",
+      notice: true
+    }
+  ]);
+
+  const addMember = ({
+    name,
+    email,
+    secretPassword,
+    totalGuests,
+    favoriteCharacter,
+    notice
+  }) => {
+    const newMember = {
+      id: members.length + 1,
+      name,
+      email,
+      secretPassword,
+      totalGuests,
+      favoriteCharacter,
+      notice
+    };
+    
+    setMembers([...members, newMember]);
+  }
+
   return (
     <div className="App">
       <div className="header">
@@ -13,7 +47,11 @@ function App() {
 
         <h2>RSVP Below!</h2>
       </div>
-      <Form />
+      <Form addMember={addMember}/>
+      <br></br>
+      <br></br>
+      <br></br>
+      <InviteList members={members}/>
     </div>
   );
 }
