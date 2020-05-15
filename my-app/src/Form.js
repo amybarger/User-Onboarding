@@ -169,7 +169,8 @@ yup
                     type="checkbox"
                     id="notice"
                     name="notice"
-                    checked={formState.terms}
+                    value={!formState.notice}
+                    checked={formState.notice}
                     onChange={inputChange}
                     required
                 />
